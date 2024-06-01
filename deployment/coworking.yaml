@@ -1,11 +1,11 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: mycoworkinglbsvc
+  name: coworking
 spec:
   type: LoadBalancer
   selector:
-    service: mycoworking
+    service: coworking
   ports:
   - name: "5153"
     protocol: TCP
@@ -15,21 +15,21 @@ spec:
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: coworkingdeploy
+  name: coworking
   labels:
-    name: coworkingdeploylb
+    name: coworking
 spec:
   replicas: 1
   selector:
     matchLabels:
-      service: mycoworking
+      service: coworking
   template:
     metadata:
       labels:
-        service: mycoworking
+        service: coworking
     spec:
       containers:
-      - name: mycoworkingcont
+      - name: coworking
         image: 199282922396.dkr.ecr.us-east-1.amazonaws.com/my-coworking-checking:latest
         imagePullPolicy: Always
         livenessProbe:
