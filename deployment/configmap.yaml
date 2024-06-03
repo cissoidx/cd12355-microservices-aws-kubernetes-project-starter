@@ -3,7 +3,7 @@ kind: ConfigMap
 metadata:
   name: mydatabasecm
 data:
-  DB_NAME: madatabase
+  DB_NAME: mydatabase
   DB_USER: myuser
   DB_HOST: postgresql-service
   DB_PORT: "5432"
@@ -14,6 +14,7 @@ metadata:
   name: mydatabasesecretname
 type: Opaque
 data:
-  postgres-password: UjJ4U1puQjBWelpFVXc9PQ==
+  postgres-password: bXlwYXNzd29yZA==
+
 
 
